@@ -1,3 +1,12 @@
+/**
+ * @file search_algorithms.cpp
+ * @brief Файл реализации структур данных, алгоритмов поиска и тестирования.
+ *
+ * В файле реализованы динамический массив, бинарное дерево поиска,
+ * красно-черное дерево, хэш-таблица, загрузка данных из файла и сохранение
+ * результатов тестирования.
+ */
+
 #include "search_algorithms.h"
 #include <map>
 #include <cstdlib>
@@ -90,7 +99,16 @@ TreeNode::~TreeNode() {
     delete objects;
 }
 
-//добавление узла во вспомогательный стек
+/**
+ * @brief Добавляет узел во вспомогательный стек.
+ *
+ * Функция используется при нерекурсивном удалении деревьев.
+ *
+ * @param stack Массив указателей на узлы.
+ * @param top Индекс вершины стека.
+ * @param capacity Вместимость стека.
+ * @param node Добавляемый узел.
+ */
 static void pushTreeNode(TreeNode**& stack, int& top, int& capacity, TreeNode* node) {
     if (node == nullptr) {
         return;
@@ -115,7 +133,14 @@ static void pushTreeNode(TreeNode**& stack, int& top, int& capacity, TreeNode* n
     top++;
 }
 
-//удаление дерева без рекурсии
+/**
+ * @brief Удаляет дерево без использования рекурсии.
+ *
+ * Нерекурсивное удаление используется для предотвращения переполнения стека
+ * при большом количестве узлов.
+ *
+ * @param root Корень удаляемого дерева.
+ */
 static void destroyTreeNodes(TreeNode* root) {
     if (root == nullptr) {
         return;
@@ -141,7 +166,6 @@ static void destroyTreeNodes(TreeNode* root) {
     delete[] stack;
 }
 
-//линейный поиск
 DynamicArray* LinearSearch::search(DynamicArray* arr, const string& key) {
     DynamicArray* results = new DynamicArray(10, false);
 
@@ -162,7 +186,6 @@ BinarySearchTree::~BinarySearchTree() {
     destroyTreeNodes(root);
 }
 
-//добавление элемента в бинарное дерево
 void BinarySearchTree::insert(DataObject* obj) {
     if (root == nullptr) {
         root = new TreeNode(obj);
@@ -200,14 +223,12 @@ void BinarySearchTree::insert(DataObject* obj) {
     }
 }
 
-//построение бинарного дерева
 void BinarySearchTree::buildFromArray(DynamicArray* arr) {
     for (int i = 0; i < arr->getSize(); i++) {
         insert((*arr)[i]);
     }
 }
 
-//поиск в бинарном дереве
 DynamicArray* BinarySearchTree::search(const string& key) {
     DynamicArray* results = new DynamicArray(10, false);
 
@@ -241,7 +262,6 @@ RedBlackTree::~RedBlackTree() {
     destroyTreeNodes(root);
 }
 
-//левый поворот
 void RedBlackTree::rotateLeft(TreeNode* x) {
     TreeNode* y = x->right;
 
@@ -267,7 +287,6 @@ void RedBlackTree::rotateLeft(TreeNode* x) {
     x->parent = y;
 }
 
-//правый поворот
 void RedBlackTree::rotateRight(TreeNode* x) {
     TreeNode* y = x->left;
 
@@ -293,7 +312,6 @@ void RedBlackTree::rotateRight(TreeNode* x) {
     x->parent = y;
 }
 
-//балансировка после вставки
 void RedBlackTree::fixInsert(TreeNode* z) {
     while (z != root && z->parent->isRed) {
         if (z->parent == z->parent->parent->left) {
@@ -341,7 +359,6 @@ void RedBlackTree::fixInsert(TreeNode* z) {
     root->isRed = false;
 }
 
-//добавление элемента в красно-черное дерево
 void RedBlackTree::insert(DataObject* obj) {
     TreeNode* y = nullptr;
     TreeNode* x = root;
@@ -380,14 +397,12 @@ void RedBlackTree::insert(DataObject* obj) {
     fixInsert(z);
 }
 
-//построение красно-черного дерева
 void RedBlackTree::buildFromArray(DynamicArray* arr) {
     for (int i = 0; i < arr->getSize(); i++) {
         insert((*arr)[i]);
     }
 }
 
-//поиск в красно-черном дереве
 DynamicArray* RedBlackTree::search(const string& key) {
     DynamicArray* results = new DynamicArray(10, false);
 
@@ -431,14 +446,12 @@ HashTable::~HashTable() {
     delete[] table;
 }
 
-//инициализация ячейки хэш-таблицы
 void HashTable::initBucket(Bucket& bucket) {
     bucket.capacity = 0;
     bucket.size = 0;
     bucket.data = nullptr;
 }
 
-//добавление объекта в ячейку хэш-таблицы
 void HashTable::addToBucket(Bucket& bucket, DataObject* obj) {
     if (bucket.capacity == 0) {
         bucket.capacity = 4;
@@ -464,7 +477,6 @@ void HashTable::addToBucket(Bucket& bucket, DataObject* obj) {
     bucket.size++;
 }
 
-//хэш-функция
 int HashTable::hashFunction(const string& key) const {
     unsigned long hash = 5381;
 
@@ -475,7 +487,6 @@ int HashTable::hashFunction(const string& key) const {
     return hash % tableSize;
 }
 
-//добавление элемента в хэш-таблицу
 void HashTable::insert(DataObject* obj) {
     int index = hashFunction(obj->getKey());
 
@@ -486,14 +497,12 @@ void HashTable::insert(DataObject* obj) {
     addToBucket(table[index], obj);
 }
 
-//построение хэш-таблицы
 void HashTable::buildFromArray(DynamicArray* arr) {
     for (int i = 0; i < arr->getSize(); i++) {
         insert((*arr)[i]);
     }
 }
 
-//поиск в хэш-таблице
 DynamicArray* HashTable::search(const string& key) {
     DynamicArray* results = new DynamicArray(10, false);
 
@@ -512,7 +521,6 @@ int HashTable::getCollisions() const {
     return collisions;
 }
 
-//количество повторов для усреднения времени
 int Benchmark::getRepeatCount(int size) {
     if (size <= 1000) {
         return 1000;
@@ -529,7 +537,6 @@ int Benchmark::getRepeatCount(int size) {
     return 50;
 }
 
-//запуск тестирования для одного размера
 Benchmark::Result* Benchmark::runTest(DynamicArray* data, const string& searchKey) {
     Result* result = new Result();
 
@@ -539,7 +546,6 @@ Benchmark::Result* Benchmark::runTest(DynamicArray* data, const string& searchKe
 
     clock_t start;
 
-    //линейный поиск
     start = clock();
 
     for (int i = 0; i < repeats; i++) {
@@ -549,7 +555,6 @@ Benchmark::Result* Benchmark::runTest(DynamicArray* data, const string& searchKe
 
     result->linearTime = double(clock() - start) / CLOCKS_PER_SEC * 1000 / repeats;
 
-    //поиск в бинарном дереве
     BinarySearchTree bst;
     bst.buildFromArray(data);
 
@@ -562,7 +567,6 @@ Benchmark::Result* Benchmark::runTest(DynamicArray* data, const string& searchKe
 
     result->bstTime = double(clock() - start) / CLOCKS_PER_SEC * 1000 / repeats;
 
-    //поиск в красно-черном дереве
     RedBlackTree rbt;
     rbt.buildFromArray(data);
 
@@ -575,7 +579,6 @@ Benchmark::Result* Benchmark::runTest(DynamicArray* data, const string& searchKe
 
     result->rbTreeTime = double(clock() - start) / CLOCKS_PER_SEC * 1000 / repeats;
 
-    //поиск в хэш-таблице
     HashTable ht(data->getSize() * 2);
     ht.buildFromArray(data);
 
@@ -589,12 +592,13 @@ Benchmark::Result* Benchmark::runTest(DynamicArray* data, const string& searchKe
     result->hashTime = double(clock() - start) / CLOCKS_PER_SEC * 1000 / repeats;
     result->collisions = ht.getCollisions();
 
-    //поиск в ассоциативном массиве
     multimap<string, DataObject*>* mmap = new multimap<string, DataObject*>();
 
     for (int i = 0; i < data->getSize(); i++) {
         mmap->insert(pair<string, DataObject*>((*data)[i]->getKey(), (*data)[i]));
     }
+
+    volatile int controlCounter = 0;
 
     start = clock();
 
@@ -602,6 +606,7 @@ Benchmark::Result* Benchmark::runTest(DynamicArray* data, const string& searchKe
         pair<multimap<string, DataObject*>::iterator, multimap<string, DataObject*>::iterator> range = mmap->equal_range(searchKey);
 
         for (multimap<string, DataObject*>::iterator it = range.first; it != range.second; ++it) {
+            controlCounter++;
         }
     }
 
@@ -612,7 +617,6 @@ Benchmark::Result* Benchmark::runTest(DynamicArray* data, const string& searchKe
     return result;
 }
 
-//запуск всех тестов
 void Benchmark::runAllTests(int sizes[], int numSizes, const string& searchKey, DynamicArray* originalData) {
     Result** results = new Result * [numSizes];
 
@@ -639,7 +643,6 @@ void Benchmark::runAllTests(int sizes[], int numSizes, const string& searchKey, 
     delete[] results;
 }
 
-//запись результатов в файл для построения графиков
 void Benchmark::exportToTXT(Result** results, int count, const string& filename) {
     ofstream file(filename.c_str());
 
@@ -660,7 +663,6 @@ void Benchmark::exportToTXT(Result** results, int count, const string& filename)
     file.close();
 }
 
-//загрузка данных из файла
 DynamicArray* loadDataFromFile(const string& filename) {
     DynamicArray* data = new DynamicArray(10, true);
 
@@ -695,7 +697,6 @@ DynamicArray* loadDataFromFile(const string& filename) {
     return data;
 }
 
-//получение ключа поиска
 string getKeyFromData(DynamicArray* data) {
     return (*data)[0]->getKey();
 }

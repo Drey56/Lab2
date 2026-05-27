@@ -1,8 +1,25 @@
+/**
+ * @file main.cpp
+ * @brief Главный файл программы для запуска сравнения алгоритмов поиска.
+ *
+ * Файл содержит точку входа в программу. В main выполняется загрузка данных
+ * из файла ds.txt, выбор ключа поиска, запуск тестирования алгоритмов и
+ * сохранение результатов в файл res.txt.
+ */
+
 #include "search_algorithms.h"
 
+ /**
+  * @brief Точка входа в программу.
+  *
+  * Выполняет загрузку исходных данных, задает размеры тестовых массивов,
+  * запускает тестирование алгоритмов поиска и освобождает выделенную память.
+  *
+  * @return Код завершения программы.
+  */
 int main() {
 
-DynamicArray* data = loadDataFromFile("ds.txt");
+    DynamicArray* data = loadDataFromFile("ds.txt");
 
     cout << "Loaded: " << data->getSize() << endl;
 
@@ -17,7 +34,7 @@ DynamicArray* data = loadDataFromFile("ds.txt");
 
     delete data;
 
-    cout << "Gotovo)" << endl;
+    cout << "Done" << endl;
 
     return 0;
 }

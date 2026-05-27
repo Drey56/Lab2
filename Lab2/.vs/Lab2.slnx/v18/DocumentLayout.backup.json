@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\andre\\source\\repos\\Lab2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{872BE1A2-9F60-4511-B485-AE75646E18CD}|Lab2.vcxproj|C:\\Users\\andre\\source\\repos\\Lab2\\search_algorithms.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{872BE1A2-9F60-4511-B485-AE75646E18CD}|Lab2.vcxproj|solutionrelative:search_algorithms.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{872BE1A2-9F60-4511-B485-AE75646E18CD}|Lab2.vcxproj|C:\\Users\\andre\\source\\repos\\Lab2\\search_algorithms.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{872BE1A2-9F60-4511-B485-AE75646E18CD}|Lab2.vcxproj|solutionrelative:search_algorithms.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -11,8 +15,8 @@
       "RelativeMoniker": "D:0:0:{872BE1A2-9F60-4511-B485-AE75646E18CD}|Lab2.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{872BE1A2-9F60-4511-B485-AE75646E18CD}|Lab2.vcxproj|C:\\Users\\andre\\source\\repos\\Lab2\\search_algorithms.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{872BE1A2-9F60-4511-B485-AE75646E18CD}|Lab2.vcxproj|solutionrelative:search_algorithms.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{872BE1A2-9F60-4511-B485-AE75646E18CD}|Lab2.vcxproj|C:\\Users\\andre\\source\\repos\\Lab2\\res.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{872BE1A2-9F60-4511-B485-AE75646E18CD}|Lab2.vcxproj|solutionrelative:res.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,43 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "res.txt",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\Lab2\\res.txt",
+              "RelativeDocumentMoniker": "res.txt",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\Lab2\\res.txt",
+              "RelativeToolTip": "res.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-05-27T03:33:21.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\Lab2\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\andre\\source\\repos\\Lab2\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-05-27T00:59:53.897Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "search_algorithms.cpp",
               "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\Lab2\\search_algorithms.cpp",
               "RelativeDocumentMoniker": "search_algorithms.cpp",
               "ToolTip": "C:\\Users\\andre\\source\\repos\\Lab2\\search_algorithms.cpp",
               "RelativeToolTip": "search_algorithms.cpp",
-              "ViewState": "AgIAAFoCAAAAAAAAAAAAAH8CAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-05-26T19:17:50.837Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "search_algorithms.h",
               "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\Lab2\\search_algorithms.h",
               "RelativeDocumentMoniker": "search_algorithms.h",
               "ToolTip": "C:\\Users\\andre\\source\\repos\\Lab2\\search_algorithms.h",
               "RelativeToolTip": "search_algorithms.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI4AAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAALEAAAAAAAAAAAAAADAAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-05-26T19:16:34.328Z",
               "EditorCaption": ""
